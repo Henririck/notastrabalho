@@ -22,6 +22,13 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
+
+        return binding.root
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val sharedPref = requireContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val edit = sharedPref.edit()
 
@@ -37,14 +44,6 @@ class FirstFragment : Fragment() {
             val notas = binding.textInputEditText.text.toString()
             edit.putString("notas", notas).apply()
         }
-        return binding.root
-
-
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
     }
 
     override fun onDestroyView() {
