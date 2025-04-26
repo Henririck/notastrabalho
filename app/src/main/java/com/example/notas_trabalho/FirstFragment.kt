@@ -32,7 +32,7 @@ class FirstFragment : Fragment() {
         val sharedPref = requireContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val edit = sharedPref.edit()
 
-        val lembrete = sharedPref.getString("notas", "Sem notas")
+        val lembrete = sharedPref.getString("lembrete", "Sem notas")
         binding.textInputEditText.setText(lembrete)
 
         binding.deleteButton.setOnClickListener {
@@ -42,7 +42,7 @@ class FirstFragment : Fragment() {
 
         binding.saveButton.setOnClickListener {
             val notas = binding.textInputEditText.text.toString()
-            edit.putString("notas", notas).apply()
+            edit.putString("lembrete", notas).apply()
         }
     }
 
