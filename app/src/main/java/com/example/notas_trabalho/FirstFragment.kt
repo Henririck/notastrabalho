@@ -31,6 +31,9 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val sharedPref = requireContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val edit = sharedPref.edit()
+        val dados_nome = arguments?.getString("nome_completo") ?: "Valor padrão"
+
+        binding.nomeView.setText("Olá, " + dados_nome)
 
         val lembrete = sharedPref.getString("lembrete", "Sem notas")
         binding.textInputEditText.setText(lembrete)
