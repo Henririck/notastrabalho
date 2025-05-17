@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1089266569472",
+    "project_id": "notas-trabalho",
+    "storage_bucket": "notas-trabalho.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089266569472:android:520a9886e85899d05863e5",
+        "android_client_info": {
+          "package_name": "com.example.notas_trabalho"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLzP0tkfnB1xp8spHd6V3iDdjr7MfMRlQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
