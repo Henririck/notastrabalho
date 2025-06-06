@@ -43,13 +43,21 @@ class RegisterFragment : Fragment() {
 
                     navController.navigate(R.id.action_RegisterFragment_to_LoginFragment)
                 } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w("Erro", "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(
-                        requireContext(),
-                        "Registration failed.",
-                        Toast.LENGTH_SHORT,
-                    ).show()
+                    if (password.length in 1..5) {
+                        Toast.makeText(
+                            requireContext(),
+                            "Senha deve conter no mínimo 6 caracteres.",
+                            Toast.LENGTH_SHORT,
+                        ).show()
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w("Erro", "createUserWithEmail:failure", task.exception)
+                        Toast.makeText(
+                            requireContext(),
+                            "Registration failed.",
+                            Toast.LENGTH_SHORT,
+                        ).show()
+                    }
                 }
             }
     }
