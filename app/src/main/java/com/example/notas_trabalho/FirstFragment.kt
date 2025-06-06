@@ -25,12 +25,11 @@ class FirstFragment : Fragment() {
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
 
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val sharedPref = requireContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val sharedPref = requireContext().getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
         val edit = sharedPref.edit()
         val dados_nome = arguments?.getString("nome_completo") ?: "Valor padrão"
 
@@ -39,6 +38,8 @@ class FirstFragment : Fragment() {
         val navController = findNavController()
 
         binding.singOut.setOnClickListener() {
+            edit.clear().apply()
+
             navController.navigate(R.id.action_FirstFragment_to_LoginFragment)
         }
 
@@ -47,7 +48,7 @@ class FirstFragment : Fragment() {
 
         binding.deleteButton.setOnClickListener {
             binding.textInputEditText.text?.clear()
-            edit.clear().apply()
+            edit.remove("lembrete").apply()
         }
 
         binding.saveButton.setOnClickListener {
