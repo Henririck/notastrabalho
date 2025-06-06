@@ -37,6 +37,8 @@ class LoginFragment : Fragment() {
     }
 
     private fun signIn(email: String, password: String) {
+        val navController = findNavController()
+
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 // Sign in success, update UI with the signed-in user's information
@@ -51,6 +53,8 @@ class LoginFragment : Fragment() {
                         apply()
                     }
                 }
+
+                navController.navigate(R.id.action_LoginFragment_to_FirstFragment)
             } else {
                 // If sign in fails, display a message to the user.
                 Log.w("Erro", "signInWithEmail:failure", task.exception)
@@ -65,7 +69,6 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val navController = findNavController()
 
         binding.buttonProximo.setOnClickListener() {
@@ -81,7 +84,6 @@ class LoginFragment : Fragment() {
             } else {
                 signIn(email, password)
 
-                navController.navigate(R.id.action_LoginFragment_to_FirstFragment)
             }
         }
 
@@ -96,8 +98,3 @@ class LoginFragment : Fragment() {
     }
 }
 
-private fun updateUI(user: FirebaseUser?) {
-}
-
-private fun reload() {
-}

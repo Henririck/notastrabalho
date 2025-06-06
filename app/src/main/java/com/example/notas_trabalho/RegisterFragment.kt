@@ -39,12 +39,15 @@ class RegisterFragment : Fragment() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("Erro", "createUserWithEmail:success")
+                    val navController = findNavController()
+
+                    navController.navigate(R.id.action_RegisterFragment_to_LoginFragment)
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("Erro", "createUserWithEmail:failure", task.exception)
                     Toast.makeText(
                         requireContext(),
-                        "Authentication failed.",
+                        "Registration failed.",
                         Toast.LENGTH_SHORT,
                     ).show()
                 }
@@ -66,9 +69,7 @@ class RegisterFragment : Fragment() {
                 ).show()
             } else {
                 createAccount(email, senha)
-                val navController = findNavController()
 
-                navController.navigate(R.id.action_RegisterFragment_to_LoginFragment)
             }
         }
     }

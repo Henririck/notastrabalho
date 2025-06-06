@@ -33,8 +33,6 @@ class FirstFragment : Fragment() {
         val edit = sharedPref.edit()
         val dados_nome = arguments?.getString("nome_completo") ?: "Valor padrão"
 
-        binding.nomeView.setText("Olá, " + dados_nome)
-
         val navController = findNavController()
 
         binding.singOut.setOnClickListener() {
