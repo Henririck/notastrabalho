@@ -41,7 +41,7 @@ class FirstFragment : Fragment() {
             navController.navigate(R.id.action_FirstFragment_to_LoginFragment)
         }
 
-        val lembrete = sharedPref.getString("lembrete", "Sem notas")
+        val lembrete = sharedPref.getString("lembrete", "")
         binding.textInputEditText.setText(lembrete)
 
         binding.deleteButton.setOnClickListener {
